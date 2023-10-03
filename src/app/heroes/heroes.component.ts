@@ -13,4 +13,8 @@ export class HeroesComponent {
     name: 'Windstorm'
   };
   heroes = HEROES;
+  selectedHero? : Hero;
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
