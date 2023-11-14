@@ -15,19 +15,19 @@ export class HeroTableComponent {
 
   // Each Column Definition results in one Column.
   public columnDefs: ColDef[] = [
-    { field: 'id'},
+    { field: 'id',
+      headerCheckboxSelection: true,
+      checkboxSelection: true,
+    },
     { field: 'name'},
-  ];
-
-  rowData = [
-    {id: 'test', name: 'test'},
-    {id: 'test2', name: 'test2'},
   ];
 
   // DefaultColDef sets props common to all Columns
   public defaultColDef: ColDef = {
     sortable: true,
     filter: true,
+    resizable: true,
+    flex: 1
   };
 
   // For accessing the Grid's API
@@ -39,11 +39,10 @@ export class HeroTableComponent {
   constructor(private heroService: HeroService) {}
 
   onGridReady(params: GridReadyEvent): void {
-    // this.getHeroes();
+    this.getHeroes();
   }
   getHeroes(): void {
-    // this.rowData$ =  this.heroService.getHeroes();
-    // this.rowData$ = this.rowData;
+    this.rowData$ =  this.heroService.getHeroes();
   }
 
   // Example of consuming Grid Event
