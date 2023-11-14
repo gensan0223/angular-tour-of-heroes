@@ -10,6 +10,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { AgGridModule } from "ag-grid-angular";
+import { HeroTableComponent } from './hero-table/hero-table.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { InMemoryDataService } from './in-memory-data.service';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent,
+    HeroTableComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +34,9 @@ import { InMemoryDataService } from './in-memory-data.service';
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
-    InMemoryDataService, { dataEncapsulation: false }
-)
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
+    AgGridModule
   ],
   providers: [
     // no need to place any providers due to the `providedIn` flag...
