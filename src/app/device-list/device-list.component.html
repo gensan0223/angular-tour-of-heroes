@@ -1,0 +1,15 @@
+<p>device-list works!</p>
+
+<form [formGroup]="devicesForm">
+    <div>
+        <label for="audio">audio: </label>
+        <input id="audio" type="text" formControlName="audio">
+    </div>
+    <div>
+        <label for="speaker">speaker: </label>
+        <input id="speaker" type="text" formControlName="speaker">
+    </div>
+</form>
+<div *ngFor="let device of deviceList">
+    <li>{{ device.label }}</li>
+</div>
